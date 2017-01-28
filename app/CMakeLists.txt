@@ -14,7 +14,8 @@ add_library( # Lib Name.
 
              # src list
              src/main/cpp/androcl.cpp
-             src/main/cpp/imgprocessor.cpp )
+             src/main/cpp/imgprocessor.cpp
+             src/main/cpp/orb.cpp)
 
 
 add_library( OpenCL SHARED IMPORTED )

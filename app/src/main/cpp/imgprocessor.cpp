@@ -152,6 +152,193 @@ inline std::string loadProgram(std::string input)
                         (std::istreambuf_iterator<char>()));
 }
 
+#ifdef HAVE_OPENCL
+static bool
+ocl_HarrisResponses(const UMat& imgbuf,
+                    const UMat& layerinfo,
+                    const UMat& keypoints,
+                    UMat& responses,
+                    int nkeypoints, int blockSize, float harris_k)
+{
+    size_t globalSize[] = {(size_t)nkeypoints};
+
+    float scale = 1.f/((1 << 2) * blockSize * 255.f);
+    float scale_sq_sq = scale * scale * scale * scale;
+
+    ocl::Kernel hr_ker("ORB_HarrisResponses", ocl::features2d::orb_oclsrc,
+                format("-D ORB_RESPONSES -D blockSize=%d -D scale_sq_sq=%.12ef -D HARRIS_K=%.12ff", blockSize, scale_sq_sq, harris_k));
+    if( hr_ker.empty() )
+        return false;
+
+    return hr_ker.args(ocl::KernelArg::ReadOnlyNoSize(imgbuf),
+                ocl::KernelArg::PtrReadOnly(layerinfo),
+                ocl::KernelArg::PtrReadOnly(keypoints),
+                ocl::KernelArg::PtrWriteOnly(responses),
+                nkeypoints).run(1, globalSize, 0, true);
+}
+
+static bool
+ocl_ICAngles(const UMat& imgbuf, const UMat& layerinfo,
+             const UMat& keypoints, UMat& responses,
+             const UMat& umax, int nkeypoints, int half_k)
+{
+    size_t globalSize[] = {(size_t)nkeypoints};
+
+    ocl::Kernel icangle_ker("ORB_ICAngle", ocl::features2d::orb_oclsrc, "-D ORB_ANGLES");
+    if( icangle_ker.empty() )
+        return false;
+
+    return icangle_ker.args(ocl::KernelArg::ReadOnlyNoSize(imgbuf),
+                ocl::KernelArg::PtrReadOnly(layerinfo),
+                ocl::KernelArg::PtrReadOnly(keypoints),
+                ocl::KernelArg::PtrWriteOnly(responses),
+                ocl::KernelArg::PtrReadOnly(umax),
+                nkeypoints, half_k).run(1, globalSize, 0, true);
+}
+
+
+static bool
+ocl_computeOrbDescriptors(const UMat& imgbuf, const UMat& layerInfo,
+                          const UMat& keypoints, UMat& desc, const UMat& pattern,
+                          int nkeypoints, int dsize, int wta_k)
+{
+    size_t globalSize[] = {(size_t)nkeypoints};
+
+    ocl::Kernel desc_ker("ORB_computeDescriptor", ocl::features2d::orb_oclsrc,
+                         format("-D ORB_DESCRIPTORS -D WTA_K=%d", wta_k));
+    if( desc_ker.empty() )
+        return false;
+
+    return desc_ker.args(ocl::KernelArg::ReadOnlyNoSize(imgbuf),
+                         ocl::KernelArg::PtrReadOnly(layerInfo),
+                         ocl::KernelArg::PtrReadOnly(keypoints),
+                         ocl::KernelArg::PtrWriteOnly(desc),
+                         ocl::KernelArg::PtrReadOnly(pattern),
+                         nkeypoints, dsize).run(1, globalSize, 0, true);
+}
+#endif
+
+void openCLORB (unsigned char* bufIn, unsigned char* bufOut, int* info)
+{
+    LOGI("\n\nStart openCLORB (i.e., OpenCL on the GPU)");
+    int width = info[0];
+    int height = info[1];
+    unsigned int imageSize = width * height * 4 * sizeof(cl_uchar);
+
+    cl_int err = CL_SUCCESS;
+    try {
+
+        std::vector<cl::Platform> platforms;
+        cl::Platform::get(&platforms);
+        if (platforms.size() == 0) {
+            std::cout << "Platform size 0\n";
+            return;
+        }
+
+        cl_context_properties properties[] =
+                { CL_CONTEXT_PLATFORM, (cl_context_properties)(platforms[0])(), 0};
+        cl::Context context(CL_DEVICE_TYPE_GPU, properties);
+
+        std::vector<cl::Device> devices = context.getInfo<CL_CONTEXT_DEVICES>();
+        cl::CommandQueue queue(context, devices[0], 0, &err);
+
+        std::string kernelSource = loadProgram("/data/data/com.example.linuxdev.myapplication/app_execdir/orb.cl");
+        if(kernelSource.empty()) {
+            LOGE("Failed to load Program:[/data/data/com.example.linuxdev.myapplication/app_execdir/orb.cl]\n");
+            return;
+        }
+
+        cl::Program::Sources source(1, std::make_pair(kernelSource.c_str(), kernelSource.length()+1));
+        cl::Program program(context, source);
+        const char *options = "-cl-fast-relaxed-math";
+        program.build(devices, options);
+
+        cl::Kernel kernel(program, "ORB_computeDescriptor", &err);
+
+        cl::Buffer bufferIn = cl::Buffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR, imageSize, (void *) &bufIn[0], &err);
+        cl::Buffer bufferOut = cl::Buffer(context, CL_MEM_READ_WRITE | CL_MEM_USE_HOST_PTR, imageSize, (void *) &bufOut[0], &err);
+        /*
+         * __global const uchar* imgbuf,
+         * int imgstep,
+         * int imgoffset0,
+          __global const int* layerinfo,
+          __global const int* keypoints,
+          __global uchar* _desc,
+          const __global int* pattern,
+          int nkeypoints,
+          int dsize
+         */
+
+        kernel.setArg(0,bufferIn);
+        kernel.setArg(1,bufferOut);
+        kernel.setArg(2,width);
+        kernel.setArg(3,height);
+
+        /*
+         *     return desc_ker.args(
+         *     ocl::KernelArg::ReadOnlyNoSize(imgbuf),
+                         ocl::KernelArg::PtrReadOnly(layerInfo),
+                         ocl::KernelArg::PtrReadOnly(keypoints),
+                         ocl::KernelArg::PtrWriteOnly(desc),
+                         ocl::KernelArg::PtrReadOnly(pattern),
+                         nkeypoints, dsize).run(1, globalSize, 0, true);
+         */
+
+        /*
+         * __global uchar4 *srcBuffer,
+            __global uchar4 *dstBuffer,
+            const int width,
+            const int height
+         */
+
+        cl::Event event;
+
+        clock_t startTimer1, stopTimer1;
+        startTimer1=clock();
+
+        //one time
+        queue.enqueueNDRangeKernel(	kernel,
+                                       cl::NullRange,
+                                       cl::NDRange(width,height),
+                                       cl::NullRange,
+                                       NULL,
+                                       &event);
+
+        //swap in and out buffer pointers and run a 2nd time
+        kernel.setArg(0,bufferOut);
+        kernel.setArg(1,bufferIn);
+        queue.enqueueNDRangeKernel(	kernel,
+                                       cl::NullRange,
+                                       cl::NDRange(width,height),
+                                       cl::NullRange,
+                                       NULL,
+                                       &event);
+
+        //swap in and out buffer pointers and run a 3rd time
+        kernel.setArg(0,bufferIn);
+        kernel.setArg(1,bufferOut);
+        queue.enqueueNDRangeKernel(	kernel,
+                                       cl::NullRange,
+                                       cl::NDRange(width,height),
+                                       cl::NullRange,
+                                       NULL,
+                                       &event);
+
+        queue.finish();
+
+        stopTimer1 = clock();
+        double elapse = 1000.0* (double)(stopTimer1 - startTimer1)/(double)CLOCKS_PER_SEC;
+        info[2] = (int)elapse;
+        LOGI("OpenCL code on the GPU took %g ms\n\n", 1000.0* (double)(stopTimer1 - startTimer1)/(double)CLOCKS_PER_SEC) ;
+
+        queue.enqueueReadBuffer(bufferOut, CL_TRUE, 0, imageSize, bufOut);
+    }
+    catch (std::exception err) {
+        LOGE("ERROR: %s\n", err.what());
+    }
+    return;
+}
+
 void openCLNR (unsigned char* bufIn, unsigned char* bufOut, int* info)
 {
 

@@ -9,5 +9,6 @@
 
 void refNR (unsigned char* bufIn, unsigned char* bufOut, int* info);
 void openCLNR (unsigned char* bufIn, unsigned char* bufOut, int* info);
+void openCLORB (unsigned char* bufIn, unsigned char* bufOut, int* info);
 
 #endif //IMGPROCESSOR_H
