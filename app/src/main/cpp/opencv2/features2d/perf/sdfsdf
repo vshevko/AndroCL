@@ -1,0 +1,143 @@
+Executing tasks: [:app:generateDebugSources, :app:mockableAndroidJar, :app:prepareDebugUnitTestDependencies, :app:generateDebugAndroidTestSources, :app:compileDebugSources, :app:compileDebugUnitTestSources, :app:compileDebugAndroidTestSources, :openCVLibrary240:generateDebugSources, :openCVLibrary240:mockableAndroidJar, :openCVLibrary240:prepareDebugUnitTestDependencies, :openCVLibrary240:generateDebugAndroidTestSources, :openCVLibrary240:compileDebugSources, :openCVLibrary240:compileDebugUnitTestSources, :openCVLibrary240:compileDebugAndroidTestSources]
+
+Configuration on demand is an incubating feature.
+Incremental java compilation is an incubating feature.
+:app:preBuild UP-TO-DATE
+:app:preDebugBuild UP-TO-DATE
+:app:checkDebugManifest
+:app:preReleaseBuild UP-TO-DATE
+:openCVLibrary240:preBuild UP-TO-DATE
+:openCVLibrary240:preReleaseBuild UP-TO-DATE
+:openCVLibrary240:checkReleaseManifest
+:openCVLibrary240:prepareReleaseDependencies
+:openCVLibrary240:compileReleaseAidl UP-TO-DATE
+:openCVLibrary240:compileReleaseNdk UP-TO-DATE
+:openCVLibrary240:compileLint UP-TO-DATE
+:openCVLibrary240:copyReleaseLint UP-TO-DATE
+:openCVLibrary240:mergeReleaseShaders UP-TO-DATE
+:openCVLibrary240:compileReleaseShaders UP-TO-DATE
+:openCVLibrary240:generateReleaseAssets UP-TO-DATE
+:openCVLibrary240:mergeReleaseAssets UP-TO-DATE
+:openCVLibrary240:mergeReleaseProguardFiles UP-TO-DATE
+:openCVLibrary240:packageReleaseRenderscript UP-TO-DATE
+:openCVLibrary240:compileReleaseRenderscript UP-TO-DATE
+:openCVLibrary240:generateReleaseResValues UP-TO-DATE
+:openCVLibrary240:generateReleaseResources UP-TO-DATE
+:openCVLibrary240:packageReleaseResources UP-TO-DATE
+:openCVLibrary240:processReleaseManifest UP-TO-DATE
+:openCVLibrary240:generateReleaseBuildConfig UP-TO-DATE
+:openCVLibrary240:processReleaseResources UP-TO-DATE
+:openCVLibrary240:generateReleaseSources UP-TO-DATE
+:openCVLibrary240:incrementalReleaseJavaCompilationSafeguard UP-TO-DATE
+:openCVLibrary240:compileReleaseJavaWithJavac UP-TO-DATE
+:openCVLibrary240:processReleaseJavaRes UP-TO-DATE
+:openCVLibrary240:transformResourcesWithMergeJavaResForRelease UP-TO-DATE
+:openCVLibrary240:transformClassesAndResourcesWithSyncLibJarsForRelease UP-TO-DATE
+:openCVLibrary240:mergeReleaseJniLibFolders UP-TO-DATE
+:openCVLibrary240:transformNative_libsWithMergeJniLibsForRelease UP-TO-DATE
+:openCVLibrary240:transformNative_libsWithSyncJniLibsForRelease UP-TO-DATE
+:openCVLibrary240:bundleRelease UP-TO-DATE
+:app:prepareAndroCLOpenCVLibrary240UnspecifiedLibrary UP-TO-DATE
+:app:prepareComAndroidSupportAnimatedVectorDrawable2421Library UP-TO-DATE
+:app:prepareComAndroidSupportAppcompatV72421Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportCompat2421Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportCoreUi2421Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportCoreUtils2421Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportFragment2421Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportMediaCompat2421Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportV42421Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportVectorDrawable2421Library UP-TO-DATE
+:app:prepareDebugDependencies
+:app:compileDebugAidl UP-TO-DATE
+:app:compileDebugRenderscript UP-TO-DATE
+:app:generateDebugBuildConfig UP-TO-DATE
+:app:generateDebugResValues UP-TO-DATE
+:app:generateDebugResources UP-TO-DATE
+:app:mergeDebugResources UP-TO-DATE
+:app:processDebugManifest UP-TO-DATE
+:app:processDebugResources UP-TO-DATE
+:app:generateDebugSources UP-TO-DATE
+:app:mockableAndroidJar UP-TO-DATE
+:app:preDebugUnitTestBuild UP-TO-DATE
+:app:prepareDebugUnitTestDependencies
+:app:preDebugAndroidTestBuild UP-TO-DATE
+:app:prepareComAndroidSupportTestEspressoEspressoCore222Library UP-TO-DATE
+:app:prepareComAndroidSupportTestEspressoEspressoIdlingResource222Library UP-TO-DATE
+:app:prepareComAndroidSupportTestExposedInstrumentationApiPublish05Library UP-TO-DATE
+:app:prepareComAndroidSupportTestRules05Library UP-TO-DATE
+:app:prepareComAndroidSupportTestRunner05Library UP-TO-DATE
+:app:prepareDebugAndroidTestDependencies
+:app:compileDebugAndroidTestAidl UP-TO-DATE
+:app:processDebugAndroidTestManifest UP-TO-DATE
+:app:compileDebugAndroidTestRenderscript UP-TO-DATE
+:app:generateDebugAndroidTestBuildConfig UP-TO-DATE
+:app:generateDebugAndroidTestResValues UP-TO-DATE
+:app:generateDebugAndroidTestResources UP-TO-DATE
+:app:mergeDebugAndroidTestResources UP-TO-DATE
+:app:processDebugAndroidTestResources UP-TO-DATE
+:app:generateDebugAndroidTestSources UP-TO-DATE
+:app:incrementalDebugJavaCompilationSafeguard UP-TO-DATE
+:app:compileDebugJavaWithJavac UP-TO-DATE
+:app:generateJsonModelDebug UP-TO-DATE
+:app:externalNativeBuildDebug
+  building /home/vitali/git/AndroCL/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libandrocl.so
+:app:externalNativeBuildDebug FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:externalNativeBuildDebug'.
+> Build command failed.
+  Error while executing '/home/vitali/Android/Sdk/cmake/3.6.3155560/bin/cmake' with arguments {--build /home/vitali/git/AndroCL/app/.externalNativeBuild/cmake/debug/armeabi-v7a --target androcl}
+  [1/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/persistence.cpp.o
+  [2/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/system.cpp.o
+  [3/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/lpsolver.cpp.o
+  [4/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/pca.cpp.o
+  [5/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/opencl/runtime/opencl_clamdblas.cpp.o
+  [6/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/lda.cpp.o
+  [7/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/cuda_info.cpp.o
+  [8/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/opengl.cpp.o
+  [9/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/array.cpp.o
+  [10/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/opencl/runtime/opencl_core.cpp.o
+  [11/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/opencl/runtime/opencl_clamdfft.cpp.o
+  [12/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/directx.cpp.o
+  [13/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/rand.cpp.o
+  [14/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/downhill_simplex.cpp.o
+  [15/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/algorithm.cpp.o
+  [16/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/matrix.cpp.o
+  [17/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/tables.cpp.o
+  [18/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/out.cpp.o
+  [19/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/cuda_stream.cpp.o
+  [20/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/stat.cpp.o
+  [21/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/umatrix.cpp.o
+  [22/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/copy.cpp.o
+  [23/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/types.cpp.o
+  [24/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/kmeans.cpp.o
+  [25/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/ovx.cpp.o
+  [26/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/parallel.cpp.o
+  [27/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/split.cpp.o
+  [28/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/opencl_kernels_core.cpp.o
+  [29/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/misc/java/src/cpp/core_manual.cpp.o
+  [30/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/cascadedetect.cpp.o
+  [31/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/main.cpp.o
+  [32/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/detection_based_tracker.cpp.o
+  [33/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/cascadedetect_convert.cpp.o
+  [34/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/haar.cpp.o
+  [35/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/hog.cpp.o
+  [36/37] Building CXX object CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/opencl_kernels_objdetect.cpp.o
+  [37/37] Linking CXX shared library ../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libandrocl.so
+  FAILED: : && /home/vitali/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++  -target armv7-none-linux-androideabi -gcc-toolchain /home/vitali/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64 --sysroot=/home/vitali/Android/Sdk/ndk-bundle/platforms/android-24/arch-arm -fPIC -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -fno-integrated-as -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -frtti -fexceptions -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--fix-cortex-a8 -Wl,--no-undefined -Wl,-z,noexecstack -Qunused-arguments -Wl,-z,relro -Wl,-z,now -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--fix-cortex-a8 -Wl,--no-undefined -Wl,-z,noexecstack -Qunused-arguments -Wl,-z,relro -Wl,-z,now -shared -Wl,-soname,libandrocl.so -o ../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libandrocl.so CMakeFiles/androcl.dir/src/main/cpp/androcl.cpp.o CMakeFiles/androcl.dir/src/main/cpp/imgprocessor.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/epnp.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/upnp.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/posit.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/stereobm.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/checkchessboard.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/solvepnp.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/main.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/levmarq.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/five-point.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/triangulate.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/homography_decomp.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/polynom_solver.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/compat_ptsetreg.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/circlesgrid.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/calibinit.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/p3p.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/dls.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/compat_stereo.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/quadsubpix.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/rho.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/ptsetreg.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/stereosgbm.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/fisheye.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/fundam.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/calibration.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/calib3d/src/opencl_kernels_calib3d.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/flann/src/flann.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/flann/src/miniflann.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/deriv.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/imgwarp.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/pyramids.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/sumpixels.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/intersection.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/utils.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/drawing.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/demosaicing.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/histogram.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/phasecorr.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/filter.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/blend.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/colormap.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/smooth.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/color.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/main.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/distransform.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/featureselect.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/convhull.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/spatialgradient.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/matchcontours.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/accum.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/lsd.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/min_enclosing_triangle.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/approx.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/emd.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/gabor.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/cornersubpix.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/canny.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/corner.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/grabcut.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/geometry.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/undistort.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/connectedcomponents.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/thresh.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/tables.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/clahe.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/linefit.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/contours.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/hough.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/subdivision2d.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/segmentation.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/generalized_hough.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/rotcalipers.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/hershey_fonts.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/shapedescr.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/samplers.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/floodfill.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/templmatch.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/morph.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/moments.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgproc/src/opencl_kernels_imgproc.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/contrast_preserve.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/denoising.cuda.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/hdr_common.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/denoising.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/merge.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/npr.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/align.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/inpaint.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/calibrate.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/seamless_cloning_impl.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/denoise_tvl1.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/tonemap.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/seamless_cloning.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/photo/src/opencl_kernels_photo.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/matchers.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/fast.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/bagofwords.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/feature2d.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/kaze.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/main.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/draw.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/gftt.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/brisk.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/blobdetector.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/kaze/AKAZEFeatures.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/kaze/nldiffusion_functions.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/kaze/fed.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/kaze/KAZEFeatures.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/keypoint.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/agast.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/mser.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/dynamic.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/akaze.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/orb.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/evaluation.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/fast_score.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/agast_score.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/src/opencl_kernels_features2d.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/features2d/misc/java/src/cpp/features2d_converters.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/video/src/kalman.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/video/src/ecc.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/video/src/compat_video.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/video/src/lkpyramid.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/video/src/optflowgf.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/video/src/bgfg_KNN.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/video/src/tvl1flow.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/video/src/camshift.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/video/src/bgfg_gaussmix2.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/video/src/opencl_kernels_video.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/shape/src/tps_trans.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/shape/src/hist_cost.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/shape/src/sc_dis.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/shape/src/emdL1.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/shape/src/aff_trans.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/shape/src/haus_dis.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_hdr.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_bmp.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_gdcm.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/utils.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_jpeg2000.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/loadsave.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_pam.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_exr.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_webp.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_gdal.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_png.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_sunras.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_jpeg.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/bitstrm.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_pxm.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/exif.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_tiff.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/rgbe.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/imgcodecs/src/grfmt_base.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/ann_mlp.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/tree.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/svm.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/inner_functions.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/testset.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/em.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/boost.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/data.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/nbayes.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/rtrees.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/gbt.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/kdtree.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/lr.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/knearest.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/ml/src/svmsgd.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/matop.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/command_line_parser.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/conjugate_gradient.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/cuda_host_mem.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/datastructs.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/hal_internal.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/glob.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/mathfuncs.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/arithm.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/cuda_gpu_mat.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/gl_core_3_1.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/persistence.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/matmul.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/parallel_pthreads.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/lapack.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/convert.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/mathfuncs_core.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/dxt.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/merge.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/alloc.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/ocl.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/stl.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/matrix_decomp.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/system.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/pca.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/va_intel.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/lda.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/lpsolver.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/cuda_info.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/opengl.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/array.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/opencl/runtime/opencl_clamdblas.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/opencl/runtime/opencl_core.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/opencl/runtime/opencl_clamdfft.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/rand.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/directx.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/downhill_simplex.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/algorithm.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/matrix.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/tables.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/out.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/cuda_stream.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/stat.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/umatrix.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/copy.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/types.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/kmeans.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/ovx.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/parallel.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/split.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/src/opencl_kernels_core.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/core/misc/java/src/cpp/core_manual.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/cascadedetect.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/main.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/detection_based_tracker.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/cascadedetect_convert.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/haar.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/hog.cpp.o CMakeFiles/androcl.dir/src/main/cpp/opencv2/objdetect/src/opencl_kernels_objdetect.cpp.o  /home/vitali/Android/Sdk/ndk-bundle/platforms/android-24/arch-arm/usr/lib/liblog.so /home/vitali/Android/Sdk/ndk-bundle/platforms/android-24/arch-arm/usr/lib/libjnigraphics.so libapp-glue.a ../../../../src/main/jniLibs/armeabi-v7a/libOpenCL.so -lm "/home/vitali/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/libgnustl_static.a" && :
+  /home/vitali/git/AndroCL/app/src/main/cpp/opencv2/features2d/misc/java/src/cpp/features2d_converters.cpp:66: error: undefined reference to 'Mat_to_vector_Mat(cv::Mat&, std::vector<cv::Mat, std::allocator<cv::Mat> >&)'
+  /home/vitali/git/AndroCL/app/src/main/cpp/opencv2/features2d/misc/java/src/cpp/features2d_converters.cpp:85: error: undefined reference to 'vector_Mat_to_Mat(std::vector<cv::Mat, std::allocator<cv::Mat> >&, cv::Mat&)'
+  /home/vitali/git/AndroCL/app/src/main/cpp/opencv2/features2d/misc/java/src/cpp/features2d_converters.cpp:92: error: undefined reference to 'Mat_to_vector_Mat(cv::Mat&, std::vector<cv::Mat, std::allocator<cv::Mat> >&)'
+  /home/vitali/git/AndroCL/app/src/main/cpp/opencv2/features2d/misc/java/src/cpp/features2d_converters.cpp:111: error: undefined reference to 'vector_Mat_to_Mat(std::vector<cv::Mat, std::allocator<cv::Mat> >&, cv::Mat&)'
+  clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+  ninja: build stopped: subcommand failed.
+
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 37.219 secs
