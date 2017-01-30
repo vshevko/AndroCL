@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (UnsatisfiedLinkError err) {
             ret = false;
             Log.e( TAG, "Failed to load file =" + lib);
+            err.printStackTrace();
         }
         return ret;
     }
@@ -136,13 +137,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
 
-            appLib = mContext.getApplicationInfo().nativeLibraryDir;
-            appLib += "/libopencv_java3.so";
-            if (true != loadNativeLib(appLib)) {
-                mStatus = AclStatus.ACV_STATUS_ACV_CV_LOAD_FAILED;
-                bCanProcess = false;
-                break;
-            }
+//            appLib = mContext.getApplicationInfo().nativeLibraryDir;
+//            appLib += "/libopencv_java3.so";
+//            if (true != loadNativeLib(appLib)) {
+//                mStatus = AclStatus.ACV_STATUS_ACV_CV_LOAD_FAILED;
+//                bCanProcess = false;
+//                break;
+//            }
 
             if (true != copyFile("bilateralKernel.cl")) { //copy cl kernel file from assets to /data/data/...assets
                 mStatus = AclStatus.ACL_STATUS_ACL_CL_LOAD_FAILED;
