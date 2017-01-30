@@ -14,6 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.opencv.android.Utils;
+import org.opencv.core.Mat;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         ACL_STATUS_OCL_SO_LOAD_FAILED,
         ACL_STATUS_ACL_SO_LOAD_FAILED,
         ACL_STATUS_ACL_CL_LOAD_FAILED,
+        ACV_STATUS_ACV_CV_LOAD_FAILED,
     }
     private AclStatus mStatus;
 
@@ -100,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
     static boolean bCanProcess = true;
     public static native int runOpenCL(Bitmap bmpIn, Bitmap bmpOut, int info[]);
     public static native int runNativeC(Bitmap bmpIn, Bitmap bmpOut, int info[]);
+    public static native int runNativeCORB(long matInAddr, long matOutAddr, int info[]);
 
     final int info[] = new int[3]; // Width, Height, Execution time (ms)
     LinearLayout layout;
@@ -130,6 +135,15 @@ public class MainActivity extends AppCompatActivity {
                 bCanProcess = false;
                 break;
             }
+
+            appLib = mContext.getApplicationInfo().nativeLibraryDir;
+            appLib += "/libopencv_java3.so";
+            if (true != loadNativeLib(appLib)) {
+                mStatus = AclStatus.ACV_STATUS_ACV_CV_LOAD_FAILED;
+                bCanProcess = false;
+                break;
+            }
+
             if (true != copyFile("bilateralKernel.cl")) { //copy cl kernel file from assets to /data/data/...assets
                 mStatus = AclStatus.ACL_STATUS_ACL_CL_LOAD_FAILED;
                 bCanProcess = false;
@@ -169,8 +183,12 @@ public class MainActivity extends AppCompatActivity {
             showMessage(mStatus);
         } else {
             Toast.makeText(mContext, "runNativeC", Toast.LENGTH_SHORT).show();
-            runNativeC(bmpOrig, bmpNativeC, info);
-            textView.setText("Bilateral Filter, NativeC, Processing time is " + info[2] + " ms");
+            Mat matIn = new Mat();
+            Utils.bitmapToMat(bmpOrig, matIn);
+            Mat matOut = matIn.clone();
+            runNativeCORB(matIn.clone().getNativeObjAddr(), matOut.getNativeObjAddr(), info);
+            Utils.matToBitmap(matOut, bmpNativeC);
+            textView.setText("ORB, NativeC, Processing time is " + info[2] + " ms");
             imageView.setImageBitmap(bmpNativeC);
         }
     }

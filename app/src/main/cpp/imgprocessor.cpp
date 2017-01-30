@@ -221,6 +221,7 @@ ocl_computeOrbDescriptors(const UMat& imgbuf, const UMat& layerInfo,
 void openCLORB (unsigned char* bufIn, unsigned char* bufOut, int* info)
 {
     LOGI("\n\nStart openCLORB (i.e., OpenCL on the GPU)");
+
     int width = info[0];
     int height = info[1];
     unsigned int imageSize = width * height * 4 * sizeof(cl_uchar);
@@ -253,43 +254,15 @@ void openCLORB (unsigned char* bufIn, unsigned char* bufOut, int* info)
         const char *options = "-cl-fast-relaxed-math";
         program.build(devices, options);
 
-        cl::Kernel kernel(program, "ORB_computeDescriptor", &err);
+        cl::Kernel kernel(program, "bilateralFilterKernel", &err);
 
         cl::Buffer bufferIn = cl::Buffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR, imageSize, (void *) &bufIn[0], &err);
         cl::Buffer bufferOut = cl::Buffer(context, CL_MEM_READ_WRITE | CL_MEM_USE_HOST_PTR, imageSize, (void *) &bufOut[0], &err);
-        /*
-         * __global const uchar* imgbuf,
-         * int imgstep,
-         * int imgoffset0,
-          __global const int* layerinfo,
-          __global const int* keypoints,
-          __global uchar* _desc,
-          const __global int* pattern,
-          int nkeypoints,
-          int dsize
-         */
 
         kernel.setArg(0,bufferIn);
         kernel.setArg(1,bufferOut);
         kernel.setArg(2,width);
         kernel.setArg(3,height);
-
-        /*
-         *     return desc_ker.args(
-         *     ocl::KernelArg::ReadOnlyNoSize(imgbuf),
-                         ocl::KernelArg::PtrReadOnly(layerInfo),
-                         ocl::KernelArg::PtrReadOnly(keypoints),
-                         ocl::KernelArg::PtrWriteOnly(desc),
-                         ocl::KernelArg::PtrReadOnly(pattern),
-                         nkeypoints, dsize).run(1, globalSize, 0, true);
-         */
-
-        /*
-         * __global uchar4 *srcBuffer,
-            __global uchar4 *dstBuffer,
-            const int width,
-            const int height
-         */
 
         cl::Event event;
 

@@ -15,16 +15,20 @@ add_library( # Lib Name.
              # src list
              src/main/cpp/androcl.cpp
              src/main/cpp/imgprocessor.cpp
-             src/main/cpp/orb.cpp)
+             )
 
 
 add_library( OpenCL SHARED IMPORTED )
 set_target_properties(OpenCL PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libOpenCL.so)
+
+add_library( OpenCV SHARED IMPORTED )
+set_target_properties(OpenCV PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libopencv_java3.so)
 
 find_library( log-lib log )
 
 find_library( jnigraphics-lib jnigraphics )
 
 find_library( opencl-lib OpenCL )
+find_library( opencv-lib OpenCV )
 
-target_link_libraries( androcl ${log-lib} ${jnigraphics-lib} app-glue OpenCL )
+target_link_libraries( androcl ${log-lib} ${jnigraphics-lib} app-glue OpenCL OpenCV)

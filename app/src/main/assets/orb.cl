@@ -128,7 +128,11 @@ ORB_ICAngle(__global const uchar* imgbuf, int imgstep, int imgoffset0,
 
 /////////////////////////////////////////////////////////////
 
-#ifdef ORB_DESCRIPTORS
+/*
+ * ocl_computeOrbDescriptors(const UMat& imgbuf, const UMat& layerInfo,
+                          const UMat& keypoints, UMat& desc, const UMat& pattern,
+                          int nkeypoints, int dsize, int wta_k)
+ */
 
 __kernel void
 ORB_computeDescriptor(__global const uchar* imgbuf, int imgstep, int imgoffset0,
@@ -160,7 +164,7 @@ ORB_computeDescriptor(__global const uchar* imgbuf, int imgstep, int imgoffset0,
         for( i = 0; i < dsize; i++ )
         {
             int val;
-        #if WTA_K == 2
+//        #if WTA_K == 2
             int t0, t1;
 
             t0 = GET_VALUE(0); t1 = GET_VALUE(1);
@@ -189,66 +193,65 @@ ORB_computeDescriptor(__global const uchar* imgbuf, int imgstep, int imgoffset0,
 
             pattern += 16*2;
 
-        #elif WTA_K == 3
-            int t0, t1, t2;
-
-            t0 = GET_VALUE(0); t1 = GET_VALUE(1); t2 = GET_VALUE(2);
-            val = t2 > t1 ? (t2 > t0 ? 2 : 0) : (t1 > t0);
-
-            t0 = GET_VALUE(3); t1 = GET_VALUE(4); t2 = GET_VALUE(5);
-            val |= (t2 > t1 ? (t2 > t0 ? 2 : 0) : (t1 > t0)) << 2;
-
-            t0 = GET_VALUE(6); t1 = GET_VALUE(7); t2 = GET_VALUE(8);
-            val |= (t2 > t1 ? (t2 > t0 ? 2 : 0) : (t1 > t0)) << 4;
-
-            t0 = GET_VALUE(9); t1 = GET_VALUE(10); t2 = GET_VALUE(11);
-            val |= (t2 > t1 ? (t2 > t0 ? 2 : 0) : (t1 > t0)) << 6;
-
-            pattern += 12*2;
-
-        #elif WTA_K == 4
-            int t0, t1, t2, t3, k;
-            int a, b;
-
-            t0 = GET_VALUE(0); t1 = GET_VALUE(1);
-            t2 = GET_VALUE(2); t3 = GET_VALUE(3);
-            a = 0, b = 2;
-            if( t1 > t0 ) t0 = t1, a = 1;
-            if( t3 > t2 ) t2 = t3, b = 3;
-            k = t0 > t2 ? a : b;
-            val = k;
-
-            t0 = GET_VALUE(4); t1 = GET_VALUE(5);
-            t2 = GET_VALUE(6); t3 = GET_VALUE(7);
-            a = 0, b = 2;
-            if( t1 > t0 ) t0 = t1, a = 1;
-            if( t3 > t2 ) t2 = t3, b = 3;
-            k = t0 > t2 ? a : b;
-            val |= k << 2;
-
-            t0 = GET_VALUE(8); t1 = GET_VALUE(9);
-            t2 = GET_VALUE(10); t3 = GET_VALUE(11);
-            a = 0, b = 2;
-            if( t1 > t0 ) t0 = t1, a = 1;
-            if( t3 > t2 ) t2 = t3, b = 3;
-            k = t0 > t2 ? a : b;
-            val |= k << 4;
-
-            t0 = GET_VALUE(12); t1 = GET_VALUE(13);
-            t2 = GET_VALUE(14); t3 = GET_VALUE(15);
-            a = 0, b = 2;
-            if( t1 > t0 ) t0 = t1, a = 1;
-            if( t3 > t2 ) t2 = t3, b = 3;
-            k = t0 > t2 ? a : b;
-            val |= k << 6;
-
-            pattern += 16*2;
-        #else
-            #error "unknown/undefined WTA_K value; should be 2, 3 or 4"
-        #endif
+//        #elif WTA_K == 3
+//            int t0, t1, t2;
+//
+//            t0 = GET_VALUE(0); t1 = GET_VALUE(1); t2 = GET_VALUE(2);
+//            val = t2 > t1 ? (t2 > t0 ? 2 : 0) : (t1 > t0);
+//
+//            t0 = GET_VALUE(3); t1 = GET_VALUE(4); t2 = GET_VALUE(5);
+//            val |= (t2 > t1 ? (t2 > t0 ? 2 : 0) : (t1 > t0)) << 2;
+//
+//            t0 = GET_VALUE(6); t1 = GET_VALUE(7); t2 = GET_VALUE(8);
+//            val |= (t2 > t1 ? (t2 > t0 ? 2 : 0) : (t1 > t0)) << 4;
+//
+//            t0 = GET_VALUE(9); t1 = GET_VALUE(10); t2 = GET_VALUE(11);
+//            val |= (t2 > t1 ? (t2 > t0 ? 2 : 0) : (t1 > t0)) << 6;
+//
+//            pattern += 12*2;
+//
+//        #elif WTA_K == 4
+//            int t0, t1, t2, t3, k;
+//            int a, b;
+//
+//            t0 = GET_VALUE(0); t1 = GET_VALUE(1);
+//            t2 = GET_VALUE(2); t3 = GET_VALUE(3);
+//            a = 0, b = 2;
+//            if( t1 > t0 ) t0 = t1, a = 1;
+//            if( t3 > t2 ) t2 = t3, b = 3;
+//            k = t0 > t2 ? a : b;
+//            val = k;
+//
+//            t0 = GET_VALUE(4); t1 = GET_VALUE(5);
+//            t2 = GET_VALUE(6); t3 = GET_VALUE(7);
+//            a = 0, b = 2;
+//            if( t1 > t0 ) t0 = t1, a = 1;
+//            if( t3 > t2 ) t2 = t3, b = 3;
+//            k = t0 > t2 ? a : b;
+//            val |= k << 2;
+//
+//            t0 = GET_VALUE(8); t1 = GET_VALUE(9);
+//            t2 = GET_VALUE(10); t3 = GET_VALUE(11);
+//            a = 0, b = 2;
+//            if( t1 > t0 ) t0 = t1, a = 1;
+//            if( t3 > t2 ) t2 = t3, b = 3;
+//            k = t0 > t2 ? a : b;
+//            val |= k << 4;
+//
+//            t0 = GET_VALUE(12); t1 = GET_VALUE(13);
+//            t2 = GET_VALUE(14); t3 = GET_VALUE(15);
+//            a = 0, b = 2;
+//            if( t1 > t0 ) t0 = t1, a = 1;
+//            if( t3 > t2 ) t2 = t3, b = 3;
+//            k = t0 > t2 ? a : b;
+//            val |= k << 6;
+//
+//            pattern += 16*2;
+//        #else
+//            #error "unknown/undefined WTA_K value; should be 2, 3 or 4"
+//        #endif
             desc[i] = (uchar)val;
         }
     }
 }
 
-#endif
