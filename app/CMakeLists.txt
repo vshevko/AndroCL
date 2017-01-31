@@ -17,6 +17,11 @@ add_library( # Lib Name.
              src/main/cpp/imgprocessor.cpp
 
         src/main/cpp/include/converters.cpp
+        src/main/cpp/include/utils.cpp
+        src/main/cpp/include/Mat.cpp
+        src/main/cpp/include/jni_part.cpp
+        src/main/cpp/include/core.cpp
+        src/main/cpp/include/features2d.cpp
 
      src/main/cpp/opencv2/calib3d/src/epnp.cpp
      src/main/cpp/opencv2/calib3d/src/upnp.cpp

@@ -14,9 +14,6 @@
 
 #include "opencv2/imgcodecs.hpp"
 
-#include "/home/vitali/git/opencv24/opencv/modules/imgcodecs/include/opencv2/imgcodecs/imgcodecs_c.h"
-#include "/home/vitali/git/opencv24/opencv/modules/imgcodecs/include/opencv2/imgcodecs.hpp"
-
 using namespace cv;
 
 /// throw java exception

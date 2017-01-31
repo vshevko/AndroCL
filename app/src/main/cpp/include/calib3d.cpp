@@ -14,10 +14,6 @@
 
 #include "opencv2/calib3d.hpp"
 
-#include "/home/vitali/git/opencv24/opencv/modules/features2d/misc/java/src/cpp/features2d_converters.hpp"
-#include "/home/vitali/git/opencv24/opencv/modules/calib3d/include/opencv2/calib3d/calib3d_c.h"
-#include "/home/vitali/git/opencv24/opencv/modules/calib3d/include/opencv2/calib3d.hpp"
-
 using namespace cv;
 
 /// throw java exception

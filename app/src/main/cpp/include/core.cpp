@@ -13,11 +13,8 @@
 #include <string>
 
 #include "opencv2/core.hpp"
+#include "../opencv2/core/misc/java/src/cpp/core_manual.hpp"
 
-#include "/home/vitali/git/opencv24/opencv/modules/core/include/opencv2/core/base.hpp"
-#include "/home/vitali/git/opencv24/opencv/modules/core/include/opencv2/core.hpp"
-#include "/home/vitali/git/opencv24/opencv/modules/core/include/opencv2/core/utility.hpp"
-#include "/home/vitali/git/opencv24/opencv/modules/core/misc/java/src/cpp/core_manual.hpp"
 
 using namespace cv;
 

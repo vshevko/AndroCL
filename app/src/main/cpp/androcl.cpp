@@ -75,6 +75,7 @@ Java_com_example_linuxdev_myapplication_MainActivity_runNativeCORB(JNIEnv* env, 
     Mat &imgOut = *(Mat *) matOutAddr;
     UMat u_imgIn;
     cv::ocl::setUseOpenCL(true);
+    cvtColor(imgIn, imgIn, COLOR_BGR2GRAY);
     // Convert it to oclMat
     imgIn.copyTo(u_imgIn);
 

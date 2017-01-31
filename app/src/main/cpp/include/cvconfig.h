@@ -1,3 +1,4 @@
+
 /* OpenCV compiled as static or dynamic libs */
 /* #undef BUILD_SHARED_LIBS */
 

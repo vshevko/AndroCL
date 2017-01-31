@@ -14,8 +14,8 @@
 
 #include "opencv2/photo.hpp"
 
-#include "/home/vitali/git/opencv24/opencv/modules/photo/include/opencv2/photo/photo_c.h"
-#include "/home/vitali/git/opencv24/opencv/modules/photo/include/opencv2/photo.hpp"
+//#include "/home/vitali/git/opencv24/opencv/modules/photo/include/opencv2/photo/photo_c.h"
+//#include "/home/vitali/git/opencv24/opencv/modules/photo/include/opencv2/photo.hpp"
 
 using namespace cv;
 

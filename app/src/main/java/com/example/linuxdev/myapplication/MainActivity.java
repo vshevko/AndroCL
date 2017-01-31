@@ -80,9 +80,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean loadNativeOpenCL() {
-        return (loadNativeLib("/system/vendor/lib/libOpenCL.so") ||
+        return (
+                loadNativeLib("/system/vendor/lib64/libOpenCL.so") ||
+                loadNativeLib("/system/vendor/lib/libOpenCL.so") ||
+
                 loadNativeLib("/system/vendor/lib/libGLES_mali.so") ||
-                loadNativeLib("/system/vendor/lib/libPVROCL.so"));
+                loadNativeLib("/system/vendor/lib64/libGLES_mali.so") ||
+
+                loadNativeLib("/system/vendor/lib/libPVROCL.so")||
+                loadNativeLib("/system/vendor/lib64/libPVROCL.so")
+        );
     }
 
     /*

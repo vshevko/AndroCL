@@ -14,8 +14,8 @@
 
 #include "opencv2/video.hpp"
 
-#include "/home/vitali/git/opencv24/opencv/modules/video/include/opencv2/video/tracking.hpp"
-#include "/home/vitali/git/opencv24/opencv/modules/video/include/opencv2/video/background_segm.hpp"
+//#include "/home/vitali/git/opencv24/opencv/modules/video/include/opencv2/video/tracking.hpp"
+//#include "/home/vitali/git/opencv24/opencv/modules/video/include/opencv2/video/background_segm.hpp"
 
 using namespace cv;
 

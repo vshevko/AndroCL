@@ -13,9 +13,8 @@
 #include <string>
 
 #include "opencv2/features2d.hpp"
-
-#include "/home/vitali/git/opencv24/opencv/modules/features2d/misc/java/src/cpp/features2d_manual.hpp"
-#include "/home/vitali/git/opencv24/opencv/modules/features2d/include/opencv2/features2d.hpp"
+#include "../opencv2/features2d/misc/java/src/cpp/features2d_converters.hpp"
+#include "../opencv2/features2d/misc/java/src/cpp/features2d_manual.hpp"
 
 using namespace cv;
 

@@ -14,8 +14,8 @@
 
 #include "opencv2/videoio.hpp"
 
-#include "/home/vitali/git/opencv24/opencv/modules/videoio/include/opencv2/videoio/videoio_c.h"
-#include "/home/vitali/git/opencv24/opencv/modules/videoio/include/opencv2/videoio.hpp"
+//#include "/home/vitali/git/opencv24/opencv/modules/videoio/include/opencv2/videoio/videoio_c.h"
+//#include "/home/vitali/git/opencv24/opencv/modules/videoio/include/opencv2/videoio.hpp"
 
 using namespace cv;
 

@@ -14,7 +14,7 @@
 
 #include "opencv2/ml.hpp"
 
-#include "/home/vitali/git/opencv24/opencv/modules/ml/include/opencv2/ml.hpp"
+//#include "/home/vitali/git/opencv24/opencv/modules/ml/include/opencv2/ml.hpp"
 
 using namespace cv;
 

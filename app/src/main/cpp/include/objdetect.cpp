@@ -14,8 +14,8 @@
 
 #include "opencv2/objdetect.hpp"
 
-#include "/home/vitali/git/opencv24/opencv/modules/objdetect/include/opencv2/objdetect.hpp"
-#include "/home/vitali/git/opencv24/opencv/modules/objdetect/include/opencv2/objdetect/detection_based_tracker.hpp"
+//#include "/home/vitali/git/opencv24/opencv/modules/objdetect/include/opencv2/objdetect.hpp"
+//#include "/home/vitali/git/opencv24/opencv/modules/objdetect/include/opencv2/objdetect/detection_based_tracker.hpp"
 
 using namespace cv;
 

@@ -14,8 +14,8 @@
 
 #include "opencv2/imgproc.hpp"
 
-#include "/home/vitali/git/opencv24/opencv/modules/imgproc/include/opencv2/imgproc/types_c.h"
-#include "/home/vitali/git/opencv24/opencv/modules/imgproc/include/opencv2/imgproc.hpp"
+//#include "/home/vitali/git/opencv24/opencv/modules/imgproc/include/opencv2/imgproc/types_c.h"
+//#include "/home/vitali/git/opencv24/opencv/modules/imgproc/include/opencv2/imgproc.hpp"
 
 using namespace cv;
 
